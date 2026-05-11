@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  --color-primary: #00F0FF;
+  --color-secondary: #BC00FF;
+  --color-surface: rgba(255, 255, 255, 0.05);
+  
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-spin-reverse-slow: spin-reverse 15s linear infinite;
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw];
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight uppercase;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-sm shadow-2xl;
+  }
+
+  .neon-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  .neon-glow-purple {
+    text-shadow: 0 0 10px rgba(188, 0, 255, 0.5);
+  }
+
+  .border-text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    color: transparent;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-only {
+      display: none;
+    }
+    .desktop-only {
+      display: block;
+    }
+  }
+}
+
+/* Visme Form Customization */
+.visme_d {
+  width: 100%;
+  min-height: 500px;
+}
