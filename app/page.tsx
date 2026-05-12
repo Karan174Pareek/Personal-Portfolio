@@ -191,7 +191,8 @@ export default function PortfolioDashboard() {
             {[
               { title: "Languages", desc: "HTML, CSS, JavaScript, Java, C, SQL, React, Node.js, Express, MongoDB." },
               { title: "Web Development", desc: "MERN Stack, Frontend & Backend Development, Responsive Design." },
-              { title: "SEO & Tools", desc: "Onpage & Offpage SEO, Wordpress, Postman, Semrush, Google Analytics." }
+              { title: "SEO & Tools", desc: "Onpage & Offpage SEO, Wordpress, Postman, Semrush, Google Analytics." },
+              { title: "AI Tools", desc: "AI Studio, Gemini, Claude, Antigravity, Cursor, Chatgpt, GitHub Copilot." }
             ].map((item, i) => (
               <motion.div 
                 key={i}
