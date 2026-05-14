@@ -33,7 +33,7 @@ export default function AboutMe() {
               ></motion.div>
 
               <img 
-                src="/about-profile.jpg" 
+                src="/profile.jpg" 
                 alt="Karan Pareek" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-70 group-hover:opacity-100 scale-105 group-hover:scale-100"
               />

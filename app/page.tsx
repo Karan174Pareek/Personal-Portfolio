@@ -147,7 +147,7 @@ export default function PortfolioDashboard() {
                 handle="Karan174Pareek"
                 status="Online"
                 contactText="Send Message"
-                avatarUrl="/about-profile.jpg"
+                avatarUrl="/profile.jpg"
                 iconUrl="/pattern.png"
                 showUserInfo={true}
                 enableTilt={true}
