@@ -75,6 +75,7 @@ interface CardProps {
   enableTilt?: boolean;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const ParticleCard: React.FC<CardProps> = ({
@@ -86,7 +87,8 @@ const ParticleCard: React.FC<CardProps> = ({
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
   clickEffect = false,
-  enableMagnetism = false
+  enableMagnetism = false,
+  onClick
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -308,6 +310,7 @@ const ParticleCard: React.FC<CardProps> = ({
       ref={cardRef}
       className={`${className} particle-container`}
       style={{ ...style, position: 'relative', overflow: 'hidden' }}
+      onClick={onClick}
     >
       {children}
     </div>
@@ -499,7 +502,8 @@ const MagicBento: React.FC<MagicBentoProps> = ({
           className: baseClassName,
           style: {
             backgroundColor: card.color || 'rgba(18, 15, 23, 0.8)',
-            '--glow-color': glowColor
+            '--glow-color': glowColor,
+            cursor: card.link ? 'pointer' : 'default'
           } as React.CSSProperties
         };
 
@@ -513,6 +517,11 @@ const MagicBento: React.FC<MagicBentoProps> = ({
             enableTilt={enableTilt}
             clickEffect={clickEffect}
             enableMagnetism={enableMagnetism}
+            onClick={() => {
+              if (card.link) {
+                window.open(card.link, '_blank', 'noopener,noreferrer');
+              }
+            }}
           >
             <div className="magic-bento-card__header">
               <div className="magic-bento-card__label">{card.label}</div>

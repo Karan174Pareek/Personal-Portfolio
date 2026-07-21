@@ -49,9 +49,10 @@ export default function Terminal() {
       case 'projects':
         newHistory.push({ type: 'output', content: 'ACTIVE PROJECTS:' });
         newHistory.push({ type: 'output', content: '  1. Fittronics Global - E-Commerce' });
-        newHistory.push({ type: 'output', content: '  2. International Immigration - Landing Page' });
-        newHistory.push({ type: 'output', content: '  3. Ignitia Digital - Agency Website' });
-        newHistory.push({ type: 'output', content: '  4. Woven Wonders - Handcrafted E-Commerce' });
+        newHistory.push({ type: 'output', content: '  2. Ignitia Digital - Agency Website' });
+        newHistory.push({ type: 'output', content: '  3. The Agency Explorer - AI Agent Console' });
+        newHistory.push({ type: 'output', content: '  4. GitStack - MERN GitHub Clone' });
+        newHistory.push({ type: 'output', content: '  5. SwiftDrop - React Native Food Delivery' });
         break;
       case 'skills':
         newHistory.push({ type: 'output', content: 'TECH STACK:' });

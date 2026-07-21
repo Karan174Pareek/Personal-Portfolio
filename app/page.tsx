@@ -46,7 +46,7 @@ export default function PortfolioDashboard() {
         />
       </div>
       <DottedSurface className="opacity-20" />
-      
+
 
 
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 py-4 md:py-6 border-b border-white/10 glassmorphism bg-black/50 backdrop-blur-md">
@@ -60,7 +60,7 @@ export default function PortfolioDashboard() {
             </span>
           </Link>
         </div>
-        
+
         {/* Desktop Navigation */}
         <div className="desktop-only">
           <GooeyNav
@@ -90,16 +90,16 @@ export default function PortfolioDashboard() {
       {/* 1st Section: Hero */}
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-24 md:pt-32 pb-20">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           <div className="space-y-8 md:space-y-12 text-center lg:text-left">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               className="space-y-4"
             >
               <span className="text-[10px] uppercase tracking-[0.8em] text-primary font-bold block mb-2">Authenticated User</span>
               <h1 className="text-4xl sm:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-6">
-                KARAN <br/>
+                KARAN <br />
                 <span className="text-primary neon-glow-cyan">PAREEK</span>
               </h1>
               <p className="text-white/40 text-xs md:text-sm max-w-md font-medium leading-relaxed mx-auto lg:mx-0">
@@ -119,14 +119,14 @@ export default function PortfolioDashboard() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center gap-4 group px-8 py-4 bg-primary text-black text-[10px] font-bold uppercase tracking-widest hover:bg-white transition-all rounded-sm w-full sm:w-auto"
               >
                 Initialize Contact <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link 
-                href="#projects" 
+              <Link
+                href="#projects"
                 className="inline-flex items-center justify-center gap-4 group px-8 py-4 border border-white/10 hover:border-primary/40 text-white text-[10px] font-bold uppercase tracking-widest transition-all rounded-sm w-full sm:w-auto"
               >
                 View Manifest <TerminalIcon size={14} className="opacity-40" />
@@ -134,7 +134,7 @@ export default function PortfolioDashboard() {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -160,7 +160,7 @@ export default function PortfolioDashboard() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
@@ -180,13 +180,13 @@ export default function PortfolioDashboard() {
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">Skills & Tools</span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">MY TECH <br/> <span className="text-white/20 border-text-stroke">STACK</span></h2>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">MY TECH <br /> <span className="text-white/20 border-text-stroke">STACK</span></h2>
             </div>
             <p className="text-white/40 text-sm max-w-sm mb-2 font-medium">
               A comprehensive toolkit for building high-performance, scalable, and visually stunning digital products.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "Languages", desc: "HTML, CSS, JavaScript, Java, C, SQL, React, Node.js, Express, MongoDB." },
@@ -194,7 +194,7 @@ export default function PortfolioDashboard() {
               { title: "SEO & Tools", desc: "Onpage & Offpage SEO, Wordpress, Postman, Semrush, Google Analytics." },
               { title: "AI Tools", desc: "AI Studio, Gemini, Claude, Antigravity, Cursor, Chatgpt, GitHub Copilot." }
             ].map((item, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ export default function PortfolioDashboard() {
                 viewport={{ once: true }}
                 className="glassmorphism p-8 hover:border-primary/20 transition-all group"
               >
-                <div className="w-8 h-8 border border-white/10 flex items-center justify-center mb-6 text-[10px] font-bold text-white/20 group-hover:text-primary transition-colors">0{i+1}</div>
+                <div className="w-8 h-8 border border-white/10 flex items-center justify-center mb-6 text-[10px] font-bold text-white/20 group-hover:text-primary transition-colors">0{i + 1}</div>
                 <h3 className="text-xl font-bold mb-4">{item.title}</h3>
                 <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
               </motion.div>
@@ -217,39 +217,39 @@ export default function PortfolioDashboard() {
           <span className="text-[10px] uppercase tracking-[0.5em] text-secondary font-bold block mb-4">Portfolio</span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">FEATURED <span className="text-secondary neon-glow-purple">WORKS</span></h2>
         </div>
-        
+
         <div className="max-w-7xl mx-auto">
-          <MagicBento 
+          <MagicBento
             items={[
               {
                 title: 'Fittronics Global',
                 description: 'High-performance e-commerce architecture with real-time inventory sync and modular checkout systems.',
-                label: 'E-Commerce / Scalability'
-              },
-              {
-                title: 'International Immigration',
-                description: 'Professional landing page for immigration services with focus on conversion and UX.',
-                label: 'Landing Page / UX'
+                label: 'E-Commerce / Scalability',
+                link: 'https://fittronics.net/'
               },
               {
                 title: 'Ignitia Digital',
-                description: 'Modern landing page for digital agency showcasing services and portfolio.',
-                label: 'Agency / UI'
+                description: 'Agency website with animated UI and scrollable service showcases; delivered real client outcomes (3x organic traffic, 2x conversions) across e-commerce, immigration, and education.',
+                label: 'Agency / UI',
+                link: 'https://karan174pareek.github.io/ignitia-digital-/'
               },
               {
-                title: 'Woven Wonders',
-                description: 'E-commerce platform for handcrafted products with integrated payment solutions.',
-                label: 'E-Commerce / Art'
+                title: 'The Agency Explorer',
+                description: 'React console managing 140+ AI agent personas across 12 divisions, with semantic search, drag-and-drop stack analyzer, live Claude API chat simulator, multi-agent chaining, and bulk export to Cursor/Windsurf/Aider with conflict detection.',
+                label: 'AI Console / React',
+                link: 'https://github.com/Karan174Pareek/The-Agency-Explorer'
               },
               {
-                title: 'Weather App',
-                description: 'Real-time weather tracking application with location-based forecasts.',
-                label: 'Tool / API'
+                title: 'GitStack',
+                description: 'Self-hosted MERN GitHub clone with a real bare Git storage engine and Smart HTTP protocol support for CLI clone/push/pull; features Issues, PRs with merge-conflict detection and auto-merge, code review, a social feed, and Docker deployment.',
+                label: 'Full Stack / MERN',
+                link: 'https://gitstack-production-8f7c.up.railway.app/login'
               },
               {
-                title: 'Chat App',
-                description: 'Real-time messaging application with persistent data and user authentication.',
-                label: 'Communication / Socket'
+                title: 'SwiftDrop',
+                description: 'Cross-platform food delivery app built with React Native and Expo, featuring restaurant browsing, category filters, cart management, and order tracking across a multi-screen navigation flow with a reusable component architecture.',
+                label: 'Mobile / React Native',
+                link: 'https://fooddeleviery.vercel.app/'
               }
             ]}
             glowColor="0, 240, 255"
@@ -278,31 +278,31 @@ export default function PortfolioDashboard() {
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="space-y-4">
             <span className="text-[10px] uppercase tracking-[0.5em] text-white/40 font-bold block">R&D Division</span>
-            <h2 className="text-5xl md:text-7xl font-bold italic">THE <br/><span className="text-primary">LAB</span></h2>
+            <h2 className="text-5xl md:text-7xl font-bold italic">THE <br /><span className="text-primary">LAB</span></h2>
             <p className="text-white/60 leading-relaxed max-w-2xl mx-auto">
               Access the core system terminal to interact with the underlying architecture. Execute commands, explore hidden files, and identify system metrics.
             </p>
           </div>
-          
+
           <Terminal />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-12">
-             <div className="aspect-square glassmorphism border-primary/20 flex flex-col items-center justify-center font-mono text-[10px] text-primary gap-4 group hover:border-primary transition-all">
-                <span className="opacity-40 uppercase">Memory</span>
-                <span className="text-lg font-bold">16GB</span>
-             </div>
-             <div className="aspect-square glassmorphism flex flex-col items-center justify-center font-mono text-[10px] opacity-20 gap-4">
-                <span className="uppercase">Uptime</span>
-                <span className="text-lg font-bold">99.9%</span>
-             </div>
-             <div className="aspect-square glassmorphism flex flex-col items-center justify-center font-mono text-[10px] opacity-20 gap-4">
-                <span className="uppercase">Network</span>
-                <span className="text-lg font-bold">1GBPS</span>
-             </div>
-             <div className="aspect-square glassmorphism border-secondary/20 flex flex-col items-center justify-center font-mono text-[10px] text-secondary gap-4 group hover:border-secondary transition-all">
-                <span className="opacity-40 uppercase">Latency</span>
-                <span className="text-lg font-bold">14MS</span>
-             </div>
+            <div className="aspect-square glassmorphism border-primary/20 flex flex-col items-center justify-center font-mono text-[10px] text-primary gap-4 group hover:border-primary transition-all">
+              <span className="opacity-40 uppercase">Memory</span>
+              <span className="text-lg font-bold">16GB</span>
+            </div>
+            <div className="aspect-square glassmorphism flex flex-col items-center justify-center font-mono text-[10px] opacity-20 gap-4">
+              <span className="uppercase">Uptime</span>
+              <span className="text-lg font-bold">99.9%</span>
+            </div>
+            <div className="aspect-square glassmorphism flex flex-col items-center justify-center font-mono text-[10px] opacity-20 gap-4">
+              <span className="uppercase">Network</span>
+              <span className="text-lg font-bold">1GBPS</span>
+            </div>
+            <div className="aspect-square glassmorphism border-secondary/20 flex flex-col items-center justify-center font-mono text-[10px] text-secondary gap-4 group hover:border-secondary transition-all">
+              <span className="opacity-40 uppercase">Latency</span>
+              <span className="text-lg font-bold">14MS</span>
+            </div>
           </div>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function PortfolioDashboard() {
       {/* 9th Section: Contact Section */}
       <section id="contact" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -319,7 +319,7 @@ export default function PortfolioDashboard() {
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">Phase 03</span>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase leading-[0.85]">
-                GET IN <br/><span className="text-primary neon-glow-cyan">TOUCH</span>
+                GET IN <br /><span className="text-primary neon-glow-cyan">TOUCH</span>
               </h2>
             </div>
             <div className="text-left md:text-right">
@@ -331,7 +331,7 @@ export default function PortfolioDashboard() {
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4 space-y-8">
               <div className="space-y-4">
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="glassmorphism p-8 rounded-sm border-white/5 hover:border-primary/20 transition-all"
                 >
@@ -342,7 +342,7 @@ export default function PortfolioDashboard() {
                   <p className="text-lg font-mono tracking-tight break-all">karanpareek174@gmail.com</p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="glassmorphism p-8 rounded-sm border-white/5 hover:border-secondary/20 transition-all"
                 >
@@ -367,7 +367,7 @@ export default function PortfolioDashboard() {
               </div>
             </div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -415,19 +415,19 @@ export default function PortfolioDashboard() {
             </span>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-6 order-last md:order-none">
-           <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/10"></div>
-           <span className="text-[10px] uppercase tracking-[0.5em] opacity-30 whitespace-nowrap">Karan Pareek © 2026</span>
+          <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/10"></div>
+          <span className="text-[10px] uppercase tracking-[0.5em] opacity-30 whitespace-nowrap">Karan Pareek © 2026</span>
         </div>
 
         <div className="flex gap-4">
-           <Link href="https://github.com/Karan174Pareek" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-             <Command size={14} />
-           </Link>
-           <Link href="/contact" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all cursor-pointer">
-             <Zap size={14} />
-           </Link>
+          <Link href="https://github.com/Karan174Pareek" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
+            <Command size={14} />
+          </Link>
+          <Link href="/contact" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all cursor-pointer">
+            <Zap size={14} />
+          </Link>
         </div>
       </footer>
 
