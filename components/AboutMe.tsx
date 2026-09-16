@@ -112,10 +112,10 @@ export default function AboutMe() {
             </div>
 
             <div className="pt-6 border-t border-white/10 flex flex-wrap gap-8">
-               <div className="flex flex-col">
-                  <span className="text-2xl font-bold tracking-tighter uppercase">20+</span>
-                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Projects Built</span>
-               </div>
+                <div className="flex flex-col">
+                   <span className="text-2xl font-bold tracking-tighter uppercase">8+</span>
+                   <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Projects Shipped</span>
+                </div>
                <div className="flex flex-col">
                   <span className="text-2xl font-bold tracking-tighter uppercase">99.9%</span>
                   <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Uptime Delivery</span>

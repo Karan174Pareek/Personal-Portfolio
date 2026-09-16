@@ -222,34 +222,40 @@ export default function PortfolioDashboard() {
           <MagicBento
             items={[
               {
-                title: 'Fittronics Global',
-                description: 'High-performance e-commerce architecture with real-time inventory sync and modular checkout systems.',
-                label: 'E-Commerce / Scalability',
-                link: 'https://fittronics.net/'
-              },
-              {
-                title: 'Ignitia Digital',
-                description: 'Agency website with animated UI and scrollable service showcases; delivered real client outcomes (3x organic traffic, 2x conversions) across e-commerce, immigration, and education.',
-                label: 'Agency / UI',
-                link: 'https://karan174pareek.github.io/ignitia-digital-/'
-              },
-              {
-                title: 'The Agency Explorer',
-                description: 'React console managing 140+ AI agent personas across 12 divisions, with semantic search, drag-and-drop stack analyzer, live Claude API chat simulator, multi-agent chaining, and bulk export to Cursor/Windsurf/Aider with conflict detection.',
-                label: 'AI Console / React',
-                link: 'https://github.com/Karan174Pareek/The-Agency-Explorer'
+                title: 'Steam-Shed Assistant',
+                description: 'Offline on-device local RAG assistant for DHR (Darjeeling Himalayan Railway) locomotive and rolling-stock maintenance documentation; built and demoed solo at the GDG Siliguri "Code for Communities" hackathon.',
+                label: 'Offline RAG / On-Device',
+                link: 'https://steammmmm-git-main-karan-pareeks-projects.vercel.app/'
               },
               {
                 title: 'GitStack',
                 description: 'Self-hosted MERN GitHub clone with a real bare Git storage engine and Smart HTTP protocol support for CLI clone/push/pull; features Issues, PRs with merge-conflict detection and auto-merge, code review, a social feed, and Docker deployment.',
                 label: 'Full Stack / MERN',
-                link: 'https://gitstack-production-8f7c.up.railway.app/login'
+                link: 'https://github.com/Karan174Pareek/GitStack'
               },
               {
-                title: 'SwiftDrop',
-                description: 'Cross-platform food delivery app built with React Native and Expo, featuring restaurant browsing, category filters, cart management, and order tracking across a multi-screen navigation flow with a reusable component architecture.',
-                label: 'Mobile / React Native',
-                link: 'https://fooddeleviery.vercel.app/'
+                title: 'ReconcileAI',
+                description: 'AI-driven finance reconciliation tool (React, Node.js, MongoDB, Claude + Gemini fallback) built for the Razorpay AI Buildathon 2026; unpacks lumped payment-gateway settlements into order-level GST/fee breakdowns via a 3-tier matching engine with human-in-the-loop approvals and immutable audit logging.',
+                label: 'AI Finance / MERN',
+                link: 'https://reconcile-ai-server.vercel.app/'
+              },
+              {
+                title: 'LiveOps',
+                description: 'Real-time team collaboration dashboard built with MERN and Socket.io; features live cross-client task sync via authenticated WebSocket rooms, JWT auth with refresh token rotation, role-based access control, and workspace-level data isolation for multi-tenant use.',
+                label: 'Real-Time / MERN',
+                link: 'https://github.com/Karan174Pareek/LiveOps'
+              },
+              {
+                title: 'ReviewPilot',
+                description: 'GitHub App for automated pull-request reviews using the Claude API; posts inline review comments on PRs and includes a developer analytics dashboard for tracking review activity and code quality trends over time.',
+                label: 'GitHub App / AI',
+                link: 'https://github.com/Karan174Pareek/CodeReviewer'
+              },
+              {
+                title: 'Ignitia Digital',
+                description: 'Agency website with animated UI and scrollable service showcases; delivered real client outcomes (3x organic traffic, 2x conversions) across e-commerce, immigration, and education verticals.',
+                label: 'Agency / UI',
+                link: 'https://karan174pareek.github.io/ignitia-digital-/'
               }
             ]}
             glowColor="0, 240, 255"

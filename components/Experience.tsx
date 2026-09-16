@@ -24,7 +24,7 @@ const education = [
     school: "Inspiria Knowledge Campus, Siliguri",
     degree: "BCA (Bachelors of Computer Application)",
     period: "2023 - 2027",
-    desc: "Current CGPA: 7.9. Focused on programming languages and development tools."
+    desc: "Current CGPA: 7.5. Focused on programming languages and development tools."
   },
   {
     school: "ST.Xavier's School, Siliguri",

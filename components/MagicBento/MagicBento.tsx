@@ -14,6 +14,7 @@ export interface BentoItem {
   description: string;
   label: string;
   color?: string;
+  link?: string;
 }
 
 interface MagicBentoProps {
@@ -518,7 +519,7 @@ const MagicBento: React.FC<MagicBentoProps> = ({
             clickEffect={clickEffect}
             enableMagnetism={enableMagnetism}
             onClick={() => {
-              if (card.link) {
+              if (card.link && card.link !== '#') {
                 window.open(card.link, '_blank', 'noopener,noreferrer');
               }
             }}

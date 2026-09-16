@@ -197,7 +197,7 @@ export default function ResumeSection() {
                                   <span className="text-[10px] font-mono text-white/40">2023 - 2027</span>
                                </div>
                                <p className="text-xs text-white/60">Inspiria Knowledge Campus</p>
-                               <p className="text-[10px] text-white/40">CGPA: 7.9</p>
+                               <p className="text-[10px] text-white/40">CGPA: 7.5</p>
                             </div>
                          </div>
                       </section>
