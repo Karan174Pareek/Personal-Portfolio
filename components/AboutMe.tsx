@@ -80,14 +80,10 @@ export default function AboutMe() {
 
             <div className="space-y-6 text-white/60 leading-relaxed font-medium text-sm md:text-base">
               <p>
-                I am <span className="text-primary">Karan Pareek</span>, a motivated Programmer and Co-Founder. 
-                My approach to development is rooted in precision, scalability, and high-performance execution.
+                I&apos;m <span className="text-primary">Karan Pareek</span>, a Full Stack Developer and Co-Founder of Ignitia Digital. I build MERN applications with AI built in, from GitHub-style platforms and real-time dashboards to automated code review tools.
               </p>
               <p>
-                Specializing in the <span className="text-white font-bold">MERN Stack</span>, I bridge the gap 
-                between complex backend logic and user-centric frontend experiences. I believe that every 
-                line of code should serve a purpose—building digital ecosystems that are both impactful 
-                and efficient.
+                Specializing in the <span className="text-white font-bold">MERN Stack</span> and AI integration, I focus on clean architecture, performance, and products that solve real problems, while also handling SEO so the sites I ship actually get found.
               </p>
             </div>
 
@@ -97,7 +93,7 @@ export default function AboutMe() {
                  { icon: <Cpu size={16} />, label: "Core Foundation", val: "MERN / JAVA / C" },
                  { icon: <Zap size={16} />, label: "Optimization", val: "SEO / PERFORMANCE" },
                  { icon: <Shield size={16} />, label: "Security", val: "RBAC / ENCRYPTION" },
-                 { icon: <Target size={16} />, label: "Objective", val: "SCALABLE SYSTEMS" }
+                 { icon: <Target size={16} />, label: "AI", val: "LLM APIS / AGENTS" }
                ].map((stat, i) => (
                  <div key={i} className="glassmorphism p-5 flex items-center gap-5 group hover:border-primary/40 transition-all border-white/5">
                     <div className="w-10 h-10 rounded-sm border border-white/10 flex items-center justify-center text-white/30 group-hover:text-primary transition-colors">
@@ -117,12 +113,12 @@ export default function AboutMe() {
                    <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Projects Shipped</span>
                 </div>
                <div className="flex flex-col">
-                  <span className="text-2xl font-bold tracking-tighter uppercase">99.9%</span>
-                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Uptime Delivery</span>
+                  <span className="text-xl md:text-2xl font-bold tracking-tighter uppercase">Co-Founder</span>
+                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Ignitia Digital</span>
                </div>
                <div className="flex flex-col">
-                  <span className="text-2xl font-bold tracking-tighter uppercase">∞</span>
-                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Learning Loop</span>
+                  <span className="text-xl md:text-2xl font-bold tracking-tighter uppercase">MERN + AI</span>
+                  <span className="text-[8px] uppercase tracking-[0.3em] text-white/30 font-bold">Core Stack</span>
                </div>
             </div>
           </motion.div>

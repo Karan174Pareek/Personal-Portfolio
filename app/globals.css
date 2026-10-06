@@ -21,6 +21,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw];
     position: relative;

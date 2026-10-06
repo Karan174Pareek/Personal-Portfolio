@@ -246,7 +246,9 @@
 
 .pc-details p {
   font-weight: 900;
-  font-size: 2.2em;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  white-space: nowrap;
+  padding: 0 16px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #00f0ff;
@@ -283,6 +285,10 @@
 
   .pc-details h3 {
     font-size: 2em;
+  }
+
+  .pc-details p {
+    font-size: 1.15em;
   }
 
   .pc-avatar-content .avatar {
