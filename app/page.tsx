@@ -13,7 +13,7 @@ import SocialProfiles from '@/components/SocialProfiles';
 import Services from '@/components/Services';
 import ResumeSection from '@/components/ResumeSection';
 import Terminal from '@/components/Terminal';
-import { Terminal as TerminalIcon, Command, Zap, Search, Globe, Shield, ChevronRight, Mail, MessageSquare, Github, Linkedin, Instagram, Menu, X } from 'lucide-react';
+import { Terminal as TerminalIcon, Command, Zap, Search, Globe, Shield, ChevronRight, Mail, MessageSquare, MapPin, Github, Linkedin, Instagram, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { KaranAI } from '@/components/karan-ai';
@@ -198,7 +198,7 @@ export default function PortfolioDashboard() {
                 </Link>
 
                 <div className="flex items-center justify-between text-[10px] font-mono text-white/40 pt-1">
-                  <span>LOC: JAIPUR, INDIA</span>
+                  <span>LOC: SILIGURI, INDIA</span>
                   <div className="flex gap-4">
                     <a href="https://github.com/Karan174Pareek" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GH</a>
                     <a href="https://www.linkedin.com/in/karanpareek" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LI</a>
@@ -484,6 +484,17 @@ export default function PortfolioDashboard() {
                   <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Instant Sync</h3>
                   <p className="text-lg font-mono tracking-tight">+91 8101482088</p>
                 </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="glassmorphism p-8 rounded-sm border-white/5 hover:border-primary/20 transition-all"
+                >
+                  <div className="w-10 h-10 border border-primary/20 flex items-center justify-center mb-6">
+                    <MapPin size={18} className="text-primary" />
+                  </div>
+                  <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Location Node</h3>
+                  <p className="text-lg font-mono tracking-tight">Siliguri, West Bengal, India</p>
+                </motion.div>
               </div>
 
               <div className="flex gap-6 pt-6 px-4">
@@ -537,7 +548,7 @@ export default function PortfolioDashboard() {
         <div className="flex items-center gap-8">
           <div className="text-[10px] font-mono leading-tight">
             <span className="block opacity-40 uppercase mb-1">Architecture</span>
-            <span className="block">40.7128° N / 74.0060° W</span>
+            <span className="block">26.7271° N / 88.3953° E</span>
           </div>
           <div className="text-[10px] font-mono leading-tight hidden sm:block">
             <span className="block opacity-40 uppercase mb-1">Status</span>

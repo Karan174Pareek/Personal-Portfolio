@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { DottedSurface } from "@/components/ui/dotted-surface";
 import Particles from "@/components/Particles/Particles";
-import { Mail, MessageSquare, ShieldCheck, Github, Linkedin, Twitter, ArrowLeft } from "lucide-react";
+import { Mail, MessageSquare, MapPin, ShieldCheck, Github, Linkedin, Twitter, ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
 import Link from 'next/link';
 
@@ -87,6 +87,17 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Instant Sync</h3>
                 <p className="text-lg font-mono tracking-tight">+91 8101482088</p>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="glassmorphism p-8 rounded-sm border-white/5 hover:border-primary/20 transition-all"
+              >
+                <div className="w-10 h-10 border border-primary/20 flex items-center justify-center mb-6">
+                  <MapPin size={18} className="text-primary" />
+                </div>
+                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Location Node</h3>
+                <p className="text-lg font-mono tracking-tight">Siliguri, West Bengal, India</p>
               </motion.div>
             </div>
 

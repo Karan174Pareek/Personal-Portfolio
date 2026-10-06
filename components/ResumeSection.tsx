@@ -156,6 +156,7 @@ export default function ResumeSection() {
                    <div className="text-right space-y-1 text-xs font-mono text-white/40">
                       <p>karanpareek174@gmail.com</p>
                       <p>+91 8101482088</p>
+                      <p>Siliguri, WB, India</p>
                       <p>www.ignitia.digital</p>
                    </div>
                 </div>
