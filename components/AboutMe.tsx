@@ -38,23 +38,26 @@ export default function AboutMe() {
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-70 group-hover:opacity-100 scale-105 group-hover:scale-100"
               />
 
-              {/* Technical Overlays */}
+              {/* Professional Overlay */}
               <div className="absolute top-6 left-6 flex flex-col gap-2">
                 <div className="px-3 py-1 bg-primary/10 border border-primary/20 backdrop-blur-md rounded-full flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
-                  <span className="text-[8px] font-mono font-bold uppercase tracking-widest text-primary">Biometric_Verified</span>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-primary">Full-Stack &amp; AI Systems</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/40 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/50 to-transparent">
                 <div className="flex justify-between items-end">
                   <div>
-                    <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em] mb-1">Entry ID</p>
-                    <h4 className="text-xl font-bold tracking-tighter uppercase">KP_PRG_001</h4>
+                    <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.2em] mb-1">Focus</p>
+                    <h4 className="text-lg font-bold tracking-tight uppercase text-white">Full-Stack &amp; Cloud DevOps</h4>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em] mb-1">Status</p>
-                    <p className="text-sm font-bold text-green-500 uppercase tracking-widest animate-pulse">Active_Node</p>
+                    <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.2em] mb-1">Status</p>
+                    <p className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Open for Work
+                    </p>
                   </div>
                 </div>
               </div>
@@ -70,11 +73,11 @@ export default function AboutMe() {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <span className="h-px w-12 bg-primary"></span>
-                <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">The Profile</span>
+                <span className="h-px w-12 bg-cyan-400"></span>
+                <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold">The Profile</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold uppercase leading-[0.85] tracking-tighter">
-                ENGINEERING <br /><span className="text-white/20 border-text-stroke">EXCELLENCE</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+                ENGINEERING <span className="text-cyan-400 neon-glow-cyan">EXCELLENCE</span>
               </h2>
             </div>
 
@@ -90,7 +93,7 @@ export default function AboutMe() {
             {/* Core Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                { icon: <Cpu size={16} />, label: "Core Foundation", val: "MERN / JAVA / C" },
+                { icon: <Cpu size={16} />, label: "Core Foundation", val: "MERN / TS / PYTHON" },
                 { icon: <Zap size={16} />, label: "Optimization", val: "SEO / PERFORMANCE" },
                 { icon: <Shield size={16} />, label: "Security", val: "RBAC / ENCRYPTION" },
                 { icon: <Target size={16} />, label: "AI", val: "LLM APIS / AGENTS" }

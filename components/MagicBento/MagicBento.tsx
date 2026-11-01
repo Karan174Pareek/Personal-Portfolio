@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
+import { ExternalLink, Clock } from 'lucide-react';
 import './MagicBento.css';
 
 const DEFAULT_PARTICLE_COUNT = 12;
@@ -15,6 +16,9 @@ export interface BentoItem {
   label: string;
   color?: string;
   link?: string;
+  tags?: string[];
+  inProgress?: boolean;
+  icon?: React.ReactNode;
 }
 
 interface MagicBentoProps {
@@ -526,10 +530,36 @@ const MagicBento: React.FC<MagicBentoProps> = ({
           >
             <div className="magic-bento-card__header">
               <div className="magic-bento-card__label">{card.label}</div>
+              {card.inProgress ? (
+                <div className="magic-bento-card__badge-progress">
+                  <Clock size={10} className="animate-spin" />
+                  <span>IN PROGRESS</span>
+                </div>
+              ) : card.link ? (
+                <div className="magic-bento-card__link-icon">
+                  <ExternalLink size={12} />
+                </div>
+              ) : null}
             </div>
+
+            {card.icon && (
+              <div className="magic-bento-card__icon-wrapper">
+                {card.icon}
+              </div>
+            )}
+
             <div className="magic-bento-card__content">
               <h2 className="magic-bento-card__title">{card.title}</h2>
               <p className="magic-bento-card__description">{card.description}</p>
+              {card.tags && card.tags.length > 0 && (
+                <div className="magic-bento-card__tags">
+                  {card.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="magic-bento-card__tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </ParticleCard>
         );

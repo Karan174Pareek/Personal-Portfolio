@@ -9,7 +9,7 @@ const experiences = [
     company: "Ignitia Digital",
     role: "Co-Founder",
     period: "Nov 2025 - Present",
-    desc: "Leading strategy, development, and delivery of modern web and IT solutions. Focused on project planning, web development, and client communication."
+    desc: "Delivered modern web and IT solutions across 6+ client websites, driving 3x organic traffic growth and 2x conversion rate gains through high-performance architectures, technical SEO, and animated UI."
   },
   {
     company: "Blue Minch",
@@ -44,9 +44,11 @@ export default function Experience() {
   return (
     <section id="experience" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-black/40">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-secondary font-bold">Timeline</span>
-          <h2 className="text-4xl md:text-6xl font-bold uppercase mt-4">Journey & <span className="text-secondary neon-glow-purple">Background</span></h2>
+        <div className="text-center mb-16">
+          <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">Timeline</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+            JOURNEY &amp; <span className="text-cyan-400 neon-glow-cyan">BACKGROUND</span>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

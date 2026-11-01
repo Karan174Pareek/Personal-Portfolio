@@ -1,85 +1,41 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
+import { ArrowUpRight, GitBranch, Sparkles, Activity, Bot, Server, Boxes, Code2, Layers, Database, TrendingUp } from 'lucide-react';
 import { DottedSurface } from '@/components/ui/dotted-surface';
 import Particles from '@/components/Particles/Particles';
-import GooeyNav from '@/components/GooeyNav/GooeyNav';
-import ProfileCard from '@/components/ProfileCard/ProfileCard';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
 import MagicBento from '@/components/MagicBento/MagicBento';
 import AboutMe from '@/components/AboutMe';
 import Experience from '@/components/Experience';
-import SocialProfiles from '@/components/SocialProfiles';
+import Achievements from '@/components/Achievements';
 import Services from '@/components/Services';
 import ResumeSection from '@/components/ResumeSection';
+import SocialProfiles from '@/components/SocialProfiles';
 import Terminal from '@/components/Terminal';
-import { Terminal as TerminalIcon, Command, Zap, Search, Globe, Shield, ChevronRight, Mail, MessageSquare, MapPin, Github, Linkedin, Instagram, Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { KaranAI } from '@/components/karan-ai';
+import ContactSection from '@/components/ContactSection';
 
-const mobileNavItems = [
-  { label: "About", href: "#about", num: "01" },
-  { label: "Stack", href: "#architecture", num: "02" },
-  { label: "Works", href: "#projects", num: "03" },
-  { label: "Services", href: "#services", num: "04" },
-  { label: "Resume", href: "#resume", num: "05" },
-  { label: "Lab", href: "#lab", num: "06" },
-  { label: "Footprints", href: "#socials", num: "07" },
-  { label: "Contact", href: "#contact", num: "08" },
-];
+export const metadata: Metadata = {
+  title: "Karan Pareek | Full Stack MERN & AI Systems Engineer",
+  description: "Portfolio of Karan Pareek. Full-stack developer specializing in scalable MERN architectures, Next.js web applications, and autonomous AI agents. Co-founder of Ignitia Digital.",
+  keywords: ["Karan Pareek", "Full Stack Developer", "MERN Stack", "Next.js", "AI Agents", "Ignitia Digital", "React"],
+  authors: [{ name: "Karan Pareek" }],
+  openGraph: {
+    title: "Karan Pareek | Full Stack MERN & AI Systems Engineer",
+    description: "Full-stack developer building scalable MERN, Next.js applications, and autonomous AI agents.",
+    url: "https://karanpareek.dev",
+    siteName: "Karan Pareek Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function PortfolioDashboard() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    // Dynamically load Visme script
-    const script = document.createElement('script');
-    script.src = "https://static-bundles.visme.co/forms/vismeforms-embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  // Prevent background scrolling when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
-
-  // Close mobile menu on resize to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Close mobile menu on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
   return (
     <main className="relative min-h-screen w-full flex flex-col font-sans overflow-x-hidden">
+      {/* 3D Background Layers */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Particles
           particleColors={["#ffffff", "#00f2ff"]}
@@ -92,297 +48,86 @@ export default function PortfolioDashboard() {
           disableRotation={false}
         />
       </div>
-      <DottedSurface className="opacity-20" />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 glassmorphism bg-black/60 backdrop-blur-md">
-        <div className="flex justify-between items-center px-6 md:px-10 py-4 md:py-6">
-          <div className="flex items-center gap-4">
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 group">
-              <div className="w-6 h-6 md:w-8 md:h-8 border-2 border-primary rotate-45 flex items-center justify-center transition-transform group-hover:rotate-[135deg] duration-500">
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-secondary animate-pulse"></div>
-              </div>
-              <span className="text-sm md:text-xl font-bold tracking-tighter uppercase">
-                Karan <span className="text-primary">Pareek</span>
-              </span>
-            </Link>
-          </div>
+      {/* Disable DottedSurface on mobile to prevent 3 concurrent WebGL contexts */}
+      <div className="hidden md:block">
+        <DottedSurface className="opacity-20" />
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <GooeyNav
-              items={[
-                { label: "About", href: "#about" },
-                { label: "Stack", href: "#architecture" },
-                { label: "Works", href: "#projects" },
-                { label: "Services", href: "#services" },
-                { label: "Resume", href: "#resume" },
-                { label: "Lab", href: "#lab" },
-                { label: "Contact", href: "#contact" },
-              ]}
-            />
-          </div>
-
-          {/* Mobile Navigation Trigger */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isMobileMenuOpen}
-              className="flex items-center gap-2 px-3 py-1.5 rounded border border-primary/40 bg-primary/10 hover:bg-primary/20 text-primary transition-all active:scale-95 cursor-pointer"
-            >
-              <span className="text-[10px] font-mono tracking-widest uppercase font-bold">
-                {isMobileMenuOpen ? "CLOSE" : "MENU"}
-              </span>
-              {isMobileMenuOpen ? <X size={15} /> : <Menu size={15} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Drawer */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'calc(100dvh - 65px)' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden w-full bg-black/95 backdrop-blur-2xl border-t border-white/10 overflow-y-auto px-6 py-6 flex flex-col justify-between"
-            >
-              <div className="space-y-6">
-                {/* HUD Header Status */}
-                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-[10px] font-mono">
-                  <span className="text-white/40 uppercase tracking-widest">// NAVIGATION MATRIX</span>
-                  <span className="text-emerald-400 uppercase tracking-widest flex items-center gap-1.5 font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    SYS.ONLINE
-                  </span>
-                </div>
-
-                {/* Nav Links */}
-                <div className="flex flex-col gap-2">
-                  {mobileNavItems.map((item, idx) => (
-                    <motion.div
-                      key={item.href}
-                      initial={{ opacity: 0, x: -12 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.03, duration: 0.2 }}
-                    >
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group flex items-center justify-between p-3.5 rounded border border-white/5 bg-white/[0.02] hover:bg-primary/[0.08] hover:border-primary/40 transition-all active:bg-primary/15"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="text-[11px] font-mono text-primary/70 group-hover:text-primary transition-colors">
-                            {item.num}
-                          </span>
-                          <span className="text-sm font-bold uppercase tracking-wider text-white group-hover:text-primary transition-colors">
-                            {item.label}
-                          </span>
-                        </div>
-                        <ChevronRight size={14} className="text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom Footer Actions */}
-              <div className="pt-6 mt-6 border-t border-white/10 space-y-4">
-                <Link
-                  href="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full py-3 px-4 rounded border border-primary bg-primary/10 hover:bg-primary text-primary hover:text-black font-bold text-xs uppercase tracking-widest text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                >
-                  <Mail size={14} /> Transmit Message
-                </Link>
-
-                <div className="flex items-center justify-between text-[10px] font-mono text-white/40 pt-1">
-                  <span>LOC: SILIGURI, INDIA</span>
-                  <div className="flex gap-4">
-                    <a href="https://github.com/Karan174Pareek" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GH</a>
-                    <a href="https://www.linkedin.com/in/karanpareek" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LI</a>
-                    <a href="https://www.hackerrank.com/profile/karanpareek174" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">HR</a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+      {/* Navigation */}
+      <Navbar />
 
       {/* 1st Section: Hero */}
-      <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-24 md:pt-32 pb-20">
-        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <Hero />
 
-          <div className="space-y-8 md:space-y-12 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="space-y-4"
-            >
-              <span className="text-[10px] uppercase tracking-[0.8em] text-primary font-bold block mb-2">Authenticated User</span>
-              <h1 className="text-4xl sm:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-6">
-                KARAN <br />
-                <span className="text-primary neon-glow-cyan">PAREEK</span>
-              </h1>
-              <p className="text-white/40 text-xs md:text-sm max-w-md font-medium leading-relaxed mx-auto lg:mx-0">
-                Full stack developer building MERN and Next.js applications with AI built in. Co-founder of Ignitia Digital.
-              </p>
-            </motion.div>
-
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8 pt-4">
-              <div className="space-y-1">
-                <span className="text-[8px] uppercase tracking-widest text-white/30">Primary Stack</span>
-                <p className="text-[10px] font-mono text-secondary">MERN / NEXT.JS / AI</p>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[8px] uppercase tracking-widest text-white/30">Current Status</span>
-                <p className="text-[10px] font-mono text-green-400 font-bold">✓ OPEN_TO_OPPORTUNITIES</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-4 group px-8 py-4 bg-primary text-black text-[10px] font-bold uppercase tracking-widest hover:bg-white transition-all rounded-sm w-full sm:w-auto"
-              >
-                Initialize Contact <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="#projects"
-                className="inline-flex items-center justify-center gap-4 group px-8 py-4 border border-white/10 hover:border-primary/40 text-white text-[10px] font-bold uppercase tracking-widest transition-all rounded-sm w-full sm:w-auto"
-              >
-                View Work <TerminalIcon size={14} className="opacity-40" />
-              </Link>
-            </div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="flex justify-center lg:justify-end mt-8 lg:mt-0"
-          >
-            <div className="scale-75 sm:scale-90 lg:scale-100">
-              <ProfileCard
-                name="Karan Pareek"
-                title="Full Stack Developer"
-                handle="Karan174Pareek"
-                status="Online"
-                contactText="Send Message"
-                avatarUrl="/profile.jpg"
-                iconUrl="/pattern.png"
-                showUserInfo={true}
-                enableTilt={true}
-                behindGlowEnabled={true}
-                innerGradient="linear-gradient(145deg, rgba(0, 240, 255, 0.2) 0%, rgba(188, 0, 255, 0.2) 100%)"
-                behindGlowColor="rgba(0, 240, 255, 0.6)"
-                onContactClick={() => window.open('https://wa.me/918101482088', '_blank')}
-              />
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20"
-        >
-          <span className="text-[8px] uppercase tracking-[0.5em] font-bold rotate-90 mb-8">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent"></div>
-        </motion.div>
-      </section>
-
-      {/* 2nd Section: About Me */}
-      <AboutMe />
-
-      {/* 3rd Section: My Tech Stack */}
-      <section id="architecture" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-black/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
-            <div className="space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">Skills & Tools</span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">MY TECH <br /> <span className="text-white/20 border-text-stroke">STACK</span></h2>
-            </div>
-            <p className="text-white/40 text-sm max-w-sm mb-2 font-medium">
-              Full stack development with AI at the core, built for performance, scale, and clean design.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Languages", desc: "JavaScript, Java, C, SQL, HTML, CSS" },
-              { title: "Frameworks & Libraries", desc: "React, Node.js, Express.js, Tailwind CSS" },
-              { title: "Databases & APIs", desc: "MongoDB, REST APIs, Postman" },
-              { title: "AI Development", desc: "Claude API integration, AI agents, prompt engineering" },
-              { title: "SEO & Marketing", desc: "On-page & Off-page SEO, WordPress, SEMrush, Google Analytics" },
-              { title: "AI Coding Tools", desc: "Claude, Antigravity, Cursor, GitHub Copilot, ChatGPT, Gemini, Google AI Studio" }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="glassmorphism p-8 hover:border-primary/20 transition-all group"
-              >
-                <div className="w-8 h-8 border border-white/10 flex items-center justify-center mb-6 text-[10px] font-bold text-white/20 group-hover:text-primary transition-colors">0{i + 1}</div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4th Section: Featured Works */}
+      {/* 2nd Section: Featured Works (Projects) */}
       <section id="projects" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto text-center mb-12 md:mb-20">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-secondary font-bold block mb-4">Portfolio</span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold">FEATURED <span className="text-secondary neon-glow-purple">WORKS</span></h2>
+          <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">
+            Production &amp; Engineering
+          </span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+            FEATURED <span className="text-cyan-400 neon-glow-cyan">WORKS</span>
+          </h2>
         </div>
 
         <div className="max-w-7xl mx-auto">
           <MagicBento
             items={[
               {
-                title: 'Steam-Shed Assistant',
-                description: 'Offline on-device local RAG assistant for DHR (Darjeeling Himalayan Railway) locomotive and rolling-stock maintenance documentation; built and demoed solo at the GDG Siliguri "Code for Communities" hackathon.',
-                label: 'Offline RAG / On-Device',
-                link: 'https://steammmmm-git-main-karan-pareeks-projects.vercel.app/'
-              },
-              {
                 title: 'GitStack',
-                description: 'Self-hosted MERN GitHub clone with a real bare Git storage engine and Smart HTTP protocol support for CLI clone/push/pull; features Issues, PRs with merge-conflict detection and auto-merge, code review, a social feed, and Docker deployment.',
-                label: 'Full Stack / MERN',
-                link: 'https://github.com/Karan174Pareek/GitStack'
+                description:
+                  'Self-hosted MERN GitHub clone with a real bare Git storage engine and Smart HTTP protocol support for CLI clone/push/pull; features Issues, PRs with merge-conflict detection and auto-merge, code review, a social feed, and Docker deployment.',
+                label: 'FULL STACK / MERN',
+                link: 'https://github.com/Karan174Pareek/GitStack',
+                tags: ['MERN', 'Bare Git Engine', 'Docker', 'REST API'],
+                icon: <GitBranch size={22} className="text-cyan-400" />,
               },
               {
                 title: 'ReconcileAI',
-                description: 'AI-driven finance reconciliation tool (React, Node.js, MongoDB, Claude + Gemini fallback) built for the Razorpay AI Buildathon 2026; unpacks lumped payment-gateway settlements into order-level GST/fee breakdowns via a 3-tier matching engine with human-in-the-loop approvals and immutable audit logging.',
-                label: 'AI Finance / MERN',
-                link: 'https://reconcile-ai-server.vercel.app/'
+                description:
+                  'AI-driven finance reconciliation tool (React, Node.js, MongoDB, Claude + Gemini fallback) built for the Razorpay AI Buildathon 2026; unpacks lumped payment-gateway settlements into order-level GST/fee breakdowns via a 3-tier matching engine with human-in-the-loop approvals and immutable audit logging.',
+                label: 'AI FINANCE / MERN',
+                link: 'https://reconcile-ai-server.vercel.app/',
+                tags: ['Claude API', 'Gemini Fallback', 'Razorpay', 'Node.js'],
+                icon: <Sparkles size={22} className="text-cyan-400" />,
               },
               {
                 title: 'LiveOps',
-                description: 'Real-time team collaboration dashboard built with MERN and Socket.io; features live cross-client task sync via authenticated WebSocket rooms, JWT auth with refresh token rotation, role-based access control, and workspace-level data isolation for multi-tenant use.',
-                label: 'Real-Time / MERN',
-                link: 'https://github.com/Karan174Pareek/LiveOps'
+                description:
+                  'Real-time team collaboration dashboard built with MERN and Socket.io; features live cross-client task sync via authenticated WebSocket rooms, JWT auth with refresh token rotation, role-based access control, and workspace-level data isolation for multi-tenant use.',
+                label: 'REAL-TIME / MERN',
+                link: 'https://github.com/Karan174Pareek/LiveOps',
+                tags: ['Socket.io', 'MERN', 'RBAC', 'WebSockets'],
+                icon: <Activity size={22} className="text-cyan-400" />,
               },
               {
                 title: 'ReviewPilot',
-                description: 'GitHub App for automated pull-request reviews using the Claude API; posts inline review comments on PRs and includes a developer analytics dashboard for tracking review activity and code quality trends over time.',
-                label: 'GitHub App / AI',
-                link: 'https://github.com/Karan174Pareek/CodeReviewer'
+                description:
+                  'GitHub App for automated pull-request reviews using the Claude API; posts inline review comments on PRs and includes a developer analytics dashboard for tracking review activity and code quality trends over time.',
+                label: 'GITHUB APP / AI',
+                link: 'https://github.com/Karan174Pareek/CodeReviewer',
+                tags: ['GitHub Apps', 'Claude API', 'TypeScript', 'Webhooks'],
+                icon: <Bot size={22} className="text-cyan-400" />,
               },
               {
-                title: 'Ignitia Digital',
-                description: 'Agency website with animated UI and scrollable service showcases; delivered real client outcomes (3x organic traffic, 2x conversions) across e-commerce, immigration, and education verticals.',
-                label: 'Agency / UI',
-                link: 'https://karan174pareek.github.io/ignitia-digital-/'
-              }
+                title: 'Mini Heroku',
+                description:
+                  'Push-to-deploy mini PaaS on Kubernetes (k3d). Builds apps from source with Kaniko and Buildpacks, pushes to a local registry and deploys them automatically; built phase by phase with verified infra, builder and deployer stages.',
+                label: 'DEVOPS / KUBERNETES',
+                link: 'https://github.com/Karan174Pareek/mini-heorku',
+                tags: ['Kubernetes', 'Docker', 'Kaniko', 'Buildpacks'],
+                icon: <Server size={22} className="text-cyan-400" />,
+              },
+              {
+                title: 'Conduit',
+                description:
+                  'MCP Gateway on Kubernetes: a custom WooCommerce MCP server, a gateway with dashboard and an AI chat agent, deployed with Helm.',
+                label: 'AI / KUBERNETES',
+                link: 'https://github.com/Karan174Pareek/Conduit',
+                tags: ['MCP', 'Kubernetes', 'Helm', 'WooCommerce', 'Node.js'],
+                icon: <Boxes size={22} className="text-cyan-400" />,
+              },
             ]}
             glowColor="0, 240, 255"
             enableTilt={true}
@@ -393,25 +138,147 @@ export default function PortfolioDashboard() {
         </div>
       </section>
 
-      {/* 5th Section: Experience And Education */}
+      {/* 3rd Section: My Tech Stack */}
+      <section id="architecture" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-black/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
+            <div className="space-y-4">
+              <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">
+                Skills &amp; Architecture
+              </span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+                MY TECH <span className="text-cyan-400 neon-glow-cyan">STACK</span>
+              </h2>
+            </div>
+            <p className="text-white/40 text-sm max-w-sm mb-2 font-medium">
+              Full-stack MERN engineering with autonomous AI systems and Kubernetes DevOps infrastructure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Languages',
+                badge: 'CORE SYNTAX',
+                desc: 'Type-safe, high-concurrency, and scalable programming languages for distributed backends and reactive frontends.',
+                icon: <Code2 size={22} className="text-primary" />,
+                skills: ['JavaScript (ES6+)', 'TypeScript', 'Python (FastAPI)', 'Java', 'SQL', 'HTML5 / CSS3'],
+              },
+              {
+                title: 'Frameworks & Libraries',
+                badge: 'APP ARCHITECTURE',
+                desc: 'Modern reactive frameworks and server runtimes built for sub-second rendering, real-time websockets, and clean modular UI.',
+                icon: <Layers size={22} className="text-primary" />,
+                skills: ['Next.js 15 (App Router)', 'React 19', 'Node.js', 'Express.js', 'Socket.io', 'Tailwind CSS'],
+              },
+              {
+                title: 'Databases & APIs',
+                badge: 'DATA & PROTOCOLS',
+                desc: 'Document stores, relational databases, cache layers, and robust RESTful / WebSocket API integrations.',
+                icon: <Database size={22} className="text-primary" />,
+                skills: ['MongoDB', 'MySQL', 'Redis', 'RESTful APIs', 'Postman', 'GraphQL'],
+              },
+              {
+                title: 'AI Development',
+                badge: 'INTELLIGENT SYSTEMS',
+                desc: 'Autonomous LLM agents, local on-device RAG pipelines, MCP servers, and multi-step tool-use workflows.',
+                icon: <Bot size={22} className="text-primary" />,
+                skills: ['Claude API', 'AI Agents', 'RAG Pipelines', 'MCP Protocol', 'Prompt Architecture', 'Vector Embeddings'],
+              },
+              {
+                title: 'DevOps & Cloud',
+                badge: 'CONTAINERS & INFRA',
+                desc: 'Containerization, push-to-deploy PaaS workflows, cluster orchestration, and automated CI/CD deployment pipelines.',
+                icon: <Server size={22} className="text-primary" />,
+                skills: ['Docker', 'Kubernetes (k3d)', 'Helm', 'Kaniko', 'Buildpacks', 'GitHub Actions', 'Linux'],
+              },
+              {
+                title: 'SEO & Performance',
+                badge: 'GROWTH & VISIBILITY',
+                desc: 'Technical search optimization, Core Web Vitals engineering, analytics auditing, and conversion rate optimization.',
+                icon: <TrendingUp size={22} className="text-primary" />,
+                skills: ['Technical SEO', 'Core Web Vitals', 'WordPress', 'Google Analytics', 'SEMrush', 'Conversion Funnels'],
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="glassmorphism p-8 hover:border-primary/20 transition-all group rounded-sm flex flex-col justify-between"
+              >
+                <div>
+                  {/* Top Bar: Counter + Domain Badge */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-8 h-8 border border-white/10 flex items-center justify-center text-[10px] font-bold text-white/20 group-hover:text-primary transition-colors">
+                      0{i + 1}
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary/80 px-2 py-0.5 rounded-sm border border-primary/20 bg-primary/5">
+                      {item.badge}
+                    </span>
+                  </div>
+
+                  {/* Icon & Title */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:scale-105 group-hover:border-primary/40 transition-all shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-1 uppercase group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs font-mono text-white/40 uppercase tracking-wider">
+                        Domain Capability
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Capability Description */}
+                  <p className="text-sm text-white/60 leading-relaxed mb-6">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* Individual Skill Pills */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                  {item.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="text-[10px] font-mono px-2.5 py-1 rounded-sm bg-white/[0.03] border border-white/5 text-white/60 group-hover:text-white/80 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4th Section: About Me */}
+      <AboutMe />
+
+      {/* 4th Section Part B: Experience And Education */}
       <Experience />
 
-      {/* 6th Section: Social Profiles */}
-      <SocialProfiles />
+      {/* 5th Section: Achievements */}
+      <Achievements />
 
-      {/* 7th Section: Services I Provide */}
+      {/* 6th Section: Services I Provide */}
       <Services />
 
-      {/* 8th Section: Resume Section */}
+      {/* 7th Section: Resume Section */}
       <ResumeSection />
 
-      {/* Terminal Functional Section (Replacing Lab for now or as a separate highlight) */}
-      <section id="lab" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-secondary/5 text-center">
+      {/* 8th Section: The Lab */}
+      <section id="lab" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-black/40 text-center">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-white/40 font-bold block">R&D Division</span>
-            <h2 className="text-5xl md:text-7xl font-bold italic">THE <br /><span className="text-primary">LAB</span></h2>
-            <p className="text-white/60 leading-relaxed max-w-2xl mx-auto">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">
+              R&amp;D Division
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+              THE <span className="text-cyan-400 neon-glow-cyan">LAB</span>
+            </h2>
+            <p className="text-white/40 text-sm max-w-xl mx-auto font-medium leading-relaxed">
               Access the core system terminal to interact with the underlying architecture. Execute commands, explore hidden files, and identify system metrics.
             </p>
           </div>
@@ -439,111 +306,13 @@ export default function PortfolioDashboard() {
         </div>
       </section>
 
-      {/* 9th Section: Contact Section */}
-      <section id="contact" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8"
-          >
-            <div className="space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">Phase 03</span>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase leading-[0.85]">
-                GET IN <br /><span className="text-primary neon-glow-cyan">TOUCH</span>
-              </h2>
-            </div>
-            <div className="text-left md:text-right">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-secondary font-bold mb-1">Status</p>
-              <p className="font-mono text-sm">ENCRYPTED CHANNEL</p>
-            </div>
-          </motion.div>
+      {/* 9th Section: Social Profiles (Footprints) */}
+      <SocialProfiles />
 
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-4 space-y-8">
-              <div className="space-y-4">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glassmorphism p-8 rounded-sm border-white/5 hover:border-primary/20 transition-all"
-                >
-                  <div className="w-10 h-10 border border-primary/20 flex items-center justify-center mb-6">
-                    <Mail size={18} className="text-primary" />
-                  </div>
-                  <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Direct Terminal</h3>
-                  <p className="text-lg font-mono tracking-tight break-all">karanpareek174@gmail.com</p>
-                </motion.div>
+      {/* 10th Section: Contact */}
+      <ContactSection />
 
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glassmorphism p-8 rounded-sm border-white/5 hover:border-secondary/20 transition-all"
-                >
-                  <div className="w-10 h-10 border border-secondary/20 flex items-center justify-center mb-6">
-                    <MessageSquare size={18} className="text-secondary" />
-                  </div>
-                  <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Instant Sync</h3>
-                  <p className="text-lg font-mono tracking-tight">+91 8101482088</p>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glassmorphism p-8 rounded-sm border-white/5 hover:border-primary/20 transition-all"
-                >
-                  <div className="w-10 h-10 border border-primary/20 flex items-center justify-center mb-6">
-                    <MapPin size={18} className="text-primary" />
-                  </div>
-                  <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Location Node</h3>
-                  <p className="text-lg font-mono tracking-tight">Siliguri, West Bengal, India</p>
-                </motion.div>
-              </div>
-
-              <div className="flex gap-6 pt-6 px-4">
-                <Link href="https://github.com/Karan174Pareek" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                  <Github size={20} />
-                </Link>
-                <Link href="https://www.linkedin.com/in/karanpareek" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                  <Linkedin size={20} />
-                </Link>
-                <Link href="https://www.instagram.com/karanpareek.xd/" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                  <Instagram size={20} />
-                </Link>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="lg:col-span-8 glassmorphism border-white/10 rounded-sm overflow-hidden min-h-[600px] flex flex-col"
-            >
-              <div className="bg-white/5 px-6 py-3 border-b border-white/10 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Transmission Interface</span>
-                <div className="flex gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse delay-75"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse delay-150"></div>
-                </div>
-              </div>
-              <div className="p-1 flex-grow relative bg-black/20">
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-                  <div className="text-[10px] font-mono animate-pulse uppercase tracking-[0.5em]">Establishing Connection...</div>
-                </div>
-                <div
-                  className="visme_d"
-                  data-title="Event Contact Form"
-                  data-url="q74vor1e-untitled-project?fullPage=true"
-                  data-domain="forms"
-                  data-full-page="true"
-                  data-min-height="100vh"
-                  data-form-id="178690"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom Footer Meta */}
+      {/* Bottom Footer */}
       <footer className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0 px-6 md:px-10 py-10 border-t border-white/5 bg-black/20 backdrop-blur-sm">
         <div className="flex items-center gap-8">
           <div className="text-[10px] font-mono leading-tight">
@@ -565,17 +334,21 @@ export default function PortfolioDashboard() {
         </div>
 
         <div className="flex gap-4">
-          <Link href="https://github.com/Karan174Pareek" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-            <Command size={14} />
-          </Link>
-          <Link href="/contact" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all cursor-pointer">
-            <Zap size={14} />
+          <Link
+            href="#contact"
+            aria-label="Contact Section"
+            className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-secondary hover:text-secondary transition-all cursor-pointer"
+          >
+            <ArrowUpRight size={14} />
           </Link>
         </div>
       </footer>
 
-      {/* AI Assistant Toggle */}
-      <KaranAI />
+      {/* Visme Script loaded with Next.js Script strategy="lazyOnload" */}
+      <Script
+        src="https://static-bundles.visme.co/forms/vismeforms-embed.js"
+        strategy="lazyOnload"
+      />
     </main>
   );
 }

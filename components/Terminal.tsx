@@ -42,23 +42,25 @@ export default function Terminal() {
         break;
       case 'about':
         newHistory.push({ type: 'output', content: 'NAME: Karan Pareek' });
-        newHistory.push({ type: 'output', content: 'ROLE: Programmer' });
-        newHistory.push({ type: 'output', content: 'MISSION: Developing scalable and efficient digital solutions.' });
-        newHistory.push({ type: 'output', content: 'LOCATION: Siliguri, WB' });
+        newHistory.push({ type: 'output', content: 'ROLE: Full Stack MERN & AI Systems Engineer' });
+        newHistory.push({ type: 'output', content: 'ORGANIZATION: Co-Founder, Ignitia Digital' });
+        newHistory.push({ type: 'output', content: 'LOCATION: Siliguri, WB, India' });
         break;
       case 'projects':
-        newHistory.push({ type: 'output', content: 'ACTIVE PROJECTS:' });
-        newHistory.push({ type: 'output', content: '  1. Fittronics Global - E-Commerce' });
-        newHistory.push({ type: 'output', content: '  2. Ignitia Digital - Agency Website' });
-        newHistory.push({ type: 'output', content: '  3. The Agency Explorer - AI Agent Console' });
-        newHistory.push({ type: 'output', content: '  4. GitStack - MERN GitHub Clone' });
-        newHistory.push({ type: 'output', content: '  5. SwiftDrop - React Native Food Delivery' });
+        newHistory.push({ type: 'output', content: 'FEATURED PROJECTS:' });
+        newHistory.push({ type: 'output', content: '  1. GitStack - Self-hosted MERN Git engine & GitHub clone' });
+        newHistory.push({ type: 'output', content: '  2. ReconcileAI - AI finance reconciliation controller' });
+        newHistory.push({ type: 'output', content: '  3. LiveOps - Real-time team dashboard with WebSockets' });
+        newHistory.push({ type: 'output', content: '  4. ReviewPilot - Claude-powered GitHub PR review app' });
+        newHistory.push({ type: 'output', content: '  5. Mini Heroku - Push-to-deploy PaaS on Kubernetes' });
+        newHistory.push({ type: 'output', content: '  6. Conduit - MCP Gateway on Kubernetes with Helm' });
         break;
       case 'skills':
-        newHistory.push({ type: 'output', content: 'TECH STACK:' });
-        newHistory.push({ type: 'output', content: '  LANGUAGES: HTML, CSS, JS, Java, C, SQL' });
-        newHistory.push({ type: 'output', content: '  STACK: MERN (MongoDB, Express, React, Node.js)' });
-        newHistory.push({ type: 'output', content: '  TOOLS: Wordpress, Postman, Semrush, SEO' });
+        newHistory.push({ type: 'output', content: 'TECHNICAL STACK:' });
+        newHistory.push({ type: 'output', content: '  LANGUAGES: TypeScript, JavaScript, Python, Java, SQL' });
+        newHistory.push({ type: 'output', content: '  FRAMEWORKS: Next.js 15, React 19, Node.js, Express, Socket.io' });
+        newHistory.push({ type: 'output', content: '  AI / SYSTEMS: Claude API, RAG, MCP, Autonomous Agents' });
+        newHistory.push({ type: 'output', content: '  DEVOPS: Docker, Kubernetes, Helm, Kaniko, CI/CD' });
         break;
       case 'contact':
         newHistory.push({ type: 'output', content: 'EMAIL: karanpareek174@gmail.com' });
@@ -91,17 +93,17 @@ export default function Terminal() {
 
   return (
     <>
-      {/* Access Trigger (Can be placed anywhere) */}
-      <div className="flex justify-center">
+      {/* Access Trigger */}
+      <section id="lab" className="flex justify-center py-12 scroll-mt-24">
         <button 
           onClick={() => setIsOpen(true)}
-          className="group relative px-8 py-4 bg-white/5 border border-white/10 hover:border-primary/40 transition-all flex items-center gap-4"
+          className="group relative px-8 py-4 bg-white/5 border border-white/10 hover:border-primary/40 transition-all flex items-center gap-4 cursor-pointer"
         >
           <div className="w-2 h-2 bg-primary animate-pulse"></div>
           <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Initialize Functional Terminal</span>
           <TerminalIcon size={14} className="opacity-40 group-hover:opacity-100 transition-opacity" />
         </button>
-      </div>
+      </section>
 
       <AnimatePresence>
         {isOpen && (

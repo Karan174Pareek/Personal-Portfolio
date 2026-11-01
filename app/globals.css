@@ -27,29 +27,48 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw];
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     position: relative;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight uppercase;
+    font-family: var(--font-display), sans-serif;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 }
 
 @layer components {
   .glassmorphism {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-sm shadow-2xl;
+    background: rgba(10, 14, 23, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glassmorphism:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 240, 255, 0.1);
+    transform: translateY(-2px);
   }
 
   .neon-glow-cyan {
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    text-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
   }
 
   .neon-glow-purple {
-    text-shadow: 0 0 10px rgba(188, 0, 255, 0.5);
+    text-shadow: 0 0 12px rgba(188, 0, 255, 0.45);
   }
 
   .border-text-stroke {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
     color: transparent;
   }
 

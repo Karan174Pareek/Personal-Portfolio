@@ -49,8 +49,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
           <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-secondary font-bold">Solutions</span>
-            <h2 className="text-4xl md:text-6xl font-bold uppercase">Services I <br/><span className="text-secondary neon-glow-purple">Provide</span></h2>
+            <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">Solutions</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+              SERVICES I <span className="text-cyan-400 neon-glow-cyan">PROVIDE</span>
+            </h2>
           </div>
           <div className="h-px flex-grow mx-12 bg-gradient-to-r from-transparent via-white/5 to-transparent hidden lg:block"></div>
           <p className="text-white/40 text-sm max-w-sm mb-2 font-medium">

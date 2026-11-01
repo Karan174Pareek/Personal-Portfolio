@@ -69,8 +69,10 @@ export default function SocialProfiles() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
           <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-primary font-bold">Connections</span>
-            <h2 className="text-4xl md:text-6xl font-bold uppercase">Digital <br /><span className="text-white/20 border-text-stroke">Footprints</span></h2>
+            <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">Connections</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
+              DIGITAL <span className="text-cyan-400 neon-glow-cyan">FOOTPRINTS</span>
+            </h2>
           </div>
           <p className="text-white/40 text-sm max-w-sm mb-2 font-medium">
             Connect with me across various platforms to track my progress, view my code, or just say hi.
