@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Link from 'next/link';
 import { ArrowUpRight, GitBranch, Sparkles, Activity, Bot, Server, Boxes, Code2, Layers, Database, TrendingUp } from 'lucide-react';
 import { DottedSurface } from '@/components/ui/dotted-surface';
@@ -343,12 +342,6 @@ export default function PortfolioDashboard() {
           </Link>
         </div>
       </footer>
-
-      {/* Visme Script loaded with Next.js Script strategy="lazyOnload" */}
-      <Script
-        src="https://static-bundles.visme.co/forms/vismeforms-embed.js"
-        strategy="lazyOnload"
-      />
     </main>
   );
 }

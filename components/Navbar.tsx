@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import GooeyNav from '@/components/GooeyNav/GooeyNav';
 import { ChevronRight, Mail, Menu, X } from 'lucide-react';
 
-const navItems = [
+const baseNavItems = [
   { label: "Works", href: "#projects" },
   { label: "Stack", href: "#architecture" },
   { label: "About", href: "#about" },
@@ -18,7 +19,7 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-const mobileNavItems = [
+const baseMobileNavItems = [
   { label: "Works", href: "#projects", num: "01" },
   { label: "Stack", href: "#architecture", num: "02" },
   { label: "About", href: "#about", num: "03" },
@@ -32,6 +33,18 @@ const mobileNavItems = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
+  const navItems = baseNavItems.map(item => ({
+    ...item,
+    href: isHome ? item.href : `/${item.href}`
+  }));
+
+  const mobileNavItems = baseMobileNavItems.map(item => ({
+    ...item,
+    href: isHome ? item.href : `/${item.href}`
+  }));
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
@@ -151,11 +164,11 @@ export default function Navbar() {
 
             <div className="pt-6 mt-6 border-t border-white/10 space-y-4">
               <Link
-                href="#contact"
+                href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full py-3 px-4 rounded border border-primary bg-primary/10 hover:bg-primary text-primary hover:text-black font-bold text-xs uppercase tracking-widest text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(0,240,255,0.2)]"
               >
-                <Mail size={14} /> Transmit Message
+                <Mail size={14} /> Send Message
               </Link>
 
               <div className="flex items-center justify-between text-[10px] font-mono text-white/40 pt-1">
@@ -173,4 +186,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

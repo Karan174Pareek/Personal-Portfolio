@@ -3,11 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Mail, MessageSquare, MapPin, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MessageSquare, MapPin, Github, Linkedin, Instagram, ArrowUpRight, Send } from 'lucide-react';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5">
+    <section id="contact" className="relative z-10 px-6 md:px-10 py-32 border-t border-white/5 bg-black/40">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -16,7 +16,7 @@ export default function ContactSection() {
           className="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8"
         >
           <div className="space-y-4">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">Transmission</span>
+            <span className="text-[10px] uppercase tracking-[0.5em] text-cyan-400 font-bold block mb-4">Communication</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight">
               GET IN <span className="text-cyan-400 neon-glow-cyan">TOUCH</span>
             </h2>
@@ -31,81 +31,126 @@ export default function ContactSection() {
         </motion.div>
 
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4 space-y-8">
+          {/* Left Column: Direct Contact Info */}
+          <div className="lg:col-span-4 space-y-6">
             <div className="space-y-4">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="glassmorphism p-8 border-white/5 hover:border-primary/20 transition-all"
+              <motion.a
+                href="mailto:karanpareek174@gmail.com"
+                whileHover={{ scale: 1.01 }}
+                className="glassmorphism p-6 md:p-8 rounded-2xl border-white/10 hover:border-cyan-400/40 transition-all block group"
               >
-                <div className="w-10 h-10 border border-primary/20 flex items-center justify-center mb-6">
-                  <Mail size={18} className="text-primary" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg border border-primary/20 bg-primary/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <Mail size={18} className="text-primary" />
+                  </div>
+                  <ArrowUpRight size={14} className="text-white/30 group-hover:text-primary transition-colors" />
                 </div>
-                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Direct Email</h3>
-                <p className="text-lg font-mono tracking-tight break-all">karanpareek174@gmail.com</p>
-              </motion.div>
+                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-1">Direct Email</h3>
+                <p className="text-base sm:text-lg font-mono tracking-tight break-all text-white/90 group-hover:text-cyan-400 transition-colors">
+                  karanpareek174@gmail.com
+                </p>
+              </motion.a>
+
+              <motion.a
+                href="https://wa.me/918101482088"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.01 }}
+                className="glassmorphism p-6 md:p-8 rounded-2xl border-white/10 hover:border-cyan-400/40 transition-all block group"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg border border-cyan-400/20 bg-cyan-400/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <MessageSquare size={18} className="text-cyan-400" />
+                  </div>
+                  <ArrowUpRight size={14} className="text-white/30 group-hover:text-cyan-400 transition-colors" />
+                </div>
+                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-1">Phone / WhatsApp</h3>
+                <p className="text-base sm:text-lg font-mono tracking-tight text-white/90 group-hover:text-cyan-400 transition-colors">
+                  +91 8101482088
+                </p>
+              </motion.a>
 
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="glassmorphism p-8 border-white/5 hover:border-cyan-400/20 transition-all"
+                whileHover={{ scale: 1.01 }}
+                className="glassmorphism p-6 md:p-8 rounded-2xl border-white/10 hover:border-cyan-400/40 transition-all"
               >
-                <div className="w-10 h-10 border border-cyan-400/20 flex items-center justify-center mb-6">
-                  <MessageSquare size={18} className="text-cyan-400" />
-                </div>
-                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Phone / WhatsApp</h3>
-                <p className="text-lg font-mono tracking-tight">+91 8101482088</p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="glassmorphism p-8 border-white/5 hover:border-cyan-400/20 transition-all"
-              >
-                <div className="w-10 h-10 border border-cyan-400/20 flex items-center justify-center mb-6">
+                <div className="w-10 h-10 rounded-lg border border-cyan-400/20 bg-cyan-400/10 flex items-center justify-center mb-4">
                   <MapPin size={18} className="text-cyan-400" />
                 </div>
-                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-2">Location</h3>
-                <p className="text-lg font-mono tracking-tight">Siliguri, West Bengal, India</p>
+                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 mb-1">Location</h3>
+                <p className="text-base sm:text-lg font-mono tracking-tight text-white/90">
+                  Siliguri, West Bengal, India
+                </p>
               </motion.div>
             </div>
 
-            <div className="flex gap-6 pt-6 px-4">
-              <Link href="https://github.com/Karan174Pareek" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                <Github size={20} />
-              </Link>
-              <Link href="https://www.linkedin.com/in/karanpareek" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                <Linkedin size={20} />
-              </Link>
-              <Link href="https://www.instagram.com/karanpareek.xd/" target="_blank" className="text-white/40 hover:text-primary transition-colors">
-                <Instagram size={20} />
-              </Link>
+            {/* Social Footprints */}
+            <div className="glassmorphism p-5 rounded-2xl border-white/10 flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-white/40">Connect</span>
+              <div className="flex gap-4">
+                <Link
+                  href="https://github.com/Karan174Pareek"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-all"
+                  aria-label="GitHub Profile"
+                >
+                  <Github size={18} />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/karanpareek"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-all"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin size={18} />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/karanpareek.xd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-all"
+                  aria-label="Instagram Profile"
+                >
+                  <Instagram size={18} />
+                </Link>
+              </div>
             </div>
           </div>
 
+          {/* Right Column: Embedded Responsive Contact Form */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 glassmorphism border-white/10 rounded-sm overflow-hidden min-h-[600px] flex flex-col"
+            className="lg:col-span-8 glassmorphism border-white/10 rounded-2xl overflow-hidden min-h-[620px] flex flex-col shadow-2xl"
           >
-            <div className="bg-white/5 px-6 py-3 border-b border-white/10 flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Transmission Interface</span>
-              <div className="flex gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse delay-75"></div>
-                <div className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse delay-150"></div>
+            {/* Header bar of the card */}
+            <div className="bg-white/[0.03] px-6 py-4 border-b border-white/10 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+                <span className="text-[11px] uppercase tracking-[0.25em] font-mono font-bold text-white/80">
+                  Direct Contact Form
+                </span>
               </div>
+              <a
+                href="mailto:karanpareek174@gmail.com"
+                className="hidden sm:inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-cyan-400 hover:text-white transition-colors"
+              >
+                <span>Or mail directly</span>
+                <Send size={11} />
+              </a>
             </div>
-            <div className="p-1 flex-grow relative bg-black/20">
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-                <div className="text-[10px] font-mono animate-pulse uppercase tracking-[0.5em]">Establishing Connection...</div>
-              </div>
-              <div
-                className="visme_d"
-                data-title="Event Contact Form"
-                data-url="q74vor1e-untitled-project?fullPage=true"
-                data-domain="forms"
-                data-full-page="true"
-                data-min-height="100vh"
-                data-form-id="178690"
+
+            {/* Seamless Embed Container */}
+            <div className="flex-grow w-full h-full min-h-[580px] relative bg-black/40">
+              <iframe
+                src="https://forms.visme.co/formsPlayer/_embed/q74vor1e-untitled-project?embedIframeId=1"
+                title="Event Contact Form"
+                className="w-full h-full min-h-[580px] border-0"
+                loading="lazy"
+                allow="camera; microphone; autoplay; encrypted-media"
               />
             </div>
           </motion.div>
@@ -114,4 +159,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
